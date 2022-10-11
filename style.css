@@ -1,0 +1,521 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Familjen Grotesk', sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*Header*/
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    height: 100px;
+    padding: 0 30px;
+}
+
+/*Logo*/
+.logo {
+    width: 210px;
+    height: auto;
+}
+
+/* img musi miec width 100% bo inaczej wychodzi poza container div */
+.logo img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* desktop menu */
+
+.desktop-main-menu {
+    margin-right: 50px;
+}
+
+.desktop-main-menu ul {
+    display: flex;
+}
+
+.desktop-main-menu ul li {
+    position: relative;
+    margin-right: 20px;
+    padding-bottom: 2px;
+}
+
+/*menu item bottom animation */
+.desktop-main-menu ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: scaleX(0);
+    transition: transform cubic-bezier(0.19, 1, 0.22, 1) 0.6s;
+    transform-origin: right center;
+}
+
+.desktop-main-menu ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition-duration: 0.4s;
+}
+
+/*Hamburrger*/
+.hamburger {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 10;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(5px);
+}
+
+.hamburger-bottom {
+    transform: translateY(10px);
+}
+
+/* Hamburger open; hamburger to X*/
+.open {
+    transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translate(6px, 6px)
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translate(-6px, 6px)
+}
+
+/* hamburger open - overlay */
+
+.overlay-show {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+}
+
+/* stop scrolling*/
+.stop-scroll {
+    overflow: hidden;
+}
+
+/* Mobile Menu*/
+.mobile-menu-main {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    z-index: 4;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: auto;
+}
+
+.mobile-menu-main ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    padding: 50px;
+
+}
+
+.mobile-menu-main ul li {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    border-bottom: 1px dotted #404040;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 8px;
+
+}
+
+.mobile-menu-main ul li a {
+    color: #fff;
+    transition: color ease-in 0.1s;
+}
+
+.mobile-menu-main ul li a:hover {
+    color: #aaa;
+}
+
+/* Show mobile menu from right */
+.show-mobile {
+    transform: translateX(0);
+}
+
+/*Hide mobile only items*/
+.mobile-only {
+    display: none;
+}
+
+/* Sections */
+
+section {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.section-text {
+    position: absolute;
+    bottom: 20%;
+    ;
+    left: 150px;
+    max-width: 560px;
+}
+
+.section-text h4 {
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-bottom: .1em;
+    animation: fadeInUp 0.5s ease-in-out;
+
+}
+
+.section-text h2 {
+    font-size: 3.7em;
+    font-weight: 700;
+    margin-bottom: .4em;
+    animation: fadeInUp 0.5s ease-in-out 0.2s;
+    animation-fill-mode: both;
+}
+
+/*Arrow Down*/
+.arrow-down {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: arrowFadeDown 5s infinite;
+
+}
+
+/* Section Image*/
+.section-a {
+    background-image: url(/Assets/section-a.webp);
+}
+
+.section-b {
+    background-image: url(/Assets/section-b.webp);
+}
+
+.section-c {
+    background-image: url(/Assets/section-c.webp);
+}
+
+.section-d {
+    background-image: url(/Assets/section-d.webp);
+}
+
+.section-e {
+    background-image: url(/Assets/section-e.webp);
+}
+
+/*Button animation */
+.btn {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    border: 2px solid white;
+    text-align: center;
+    min-width: 130px;
+    padding: 15px 50px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    overflow: hidden;
+    z-index: 2;
+    transition: color ease-in .2s;
+    animation: fadeInUp 0.5s ease-in-out 0.4s;
+    animation-fill-mode: both;
+}
+
+.btn:hover span {
+    color: #000;
+}
+
+.btn .hover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: -1;
+    transform: translateY(100%);
+    transition: transform cubic-bezier(0.19, 1, 0.22, 1) 0.6s;
+}
+
+.btn:hover .hover {
+    transform: translateY(0);
+}
+
+/* Footer */
+
+footer {
+    position: relative;
+    padding: 50px 0;
+    text-transform: uppercase;
+
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer ul li {
+    margin: 0 25px;
+    font-size: .8em;
+    font-weight: 700;
+    color: #aaa;
+    line-height: 3em;
+}
+
+footer ul li a {
+    transition: color ease-in 0.1s;
+}
+
+footer ul li a:hover {
+    color: #aaa;
+}
+
+
+/* Falcon 9 inner page*/
+.bg-falcon9 {
+    background-image: url(/Assets/falcon-9.webp);
+}
+
+.bg-falcon-heavy {
+    background-image: url(Assets/falcon-heavy.webp)
+}
+
+.bg-dragon {
+    background-image: url(Assets/dragon.webp)
+}
+.section-animate {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.section-text-falcon9 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+    width: 85%;
+}
+
+.section-text-falcon9 h3 {
+    font-size: 7em;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.section-text-falcon9 p {
+    font-size: 1.3em;
+    animation: fadeInUp 0.5s ease-in-out 0.2s;
+    animation-fill-mode: both;
+}
+
+/*Stats count*/
+.stats {
+    max-width: 960px;
+    margin: 30px auto 30px auto;
+    padding: 0 40px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+
+.stats div span {
+    font-size: 9em;
+}
+
+.stats div h4 {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+
+
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(140px);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+@keyframes arrowFadeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+    70%,
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+/* Media Queries */
+
+@media(max-width: 960px) {
+
+    /*Hide Desktop Menu*/
+    .desktop-main-menu {
+        display: none;
+    }
+
+    .logo {
+        margin: auto;
+        width: 150px;
+    }
+
+    /*show mobile only items*/
+    .mobile-only {
+        display: block;
+    }
+
+    .stats div span {
+        font-size: 5em;
+    }
+
+}
+
+@media(max-width: 600px) {
+    .section-text {
+        left: 20px;
+        bottom: 100px;
+    }
+
+    .section-text h2 {
+        font-size: 2.7em;
+    }
+
+    footer ul li:first-child {
+        position: absolute;
+        top: 10%;
+    }
+
+    footer ul li {
+        margin: 0 10px;
+        line-height: 2.5em;
+    }
+
+    .mobile-menu-main {
+        width: 250px;
+    }
+
+    .mobile-menu-main ul li a {
+        font-size: .8em;
+    }
+
+    .section-text-falcon9 h3 {
+        font-size: 4em;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .stats div {
+        margin-bottom: 20px;
+    }
+
+}
